@@ -1,6 +1,6 @@
 package com.pbo.fareru.minpro.pbo.model;
 
-public class LanggananStreaming extends Langganan implements DapatDiskon {\
+public class LanggananStreaming extends Langganan implements DapatDidiskon {
     @Override
     public double hitungDiskon(int bulan) {
     if (bulan >= BATAS_BULAN_DISKON) {

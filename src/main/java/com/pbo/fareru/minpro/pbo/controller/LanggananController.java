@@ -451,14 +451,13 @@ public class LanggananController {
 
         view.tampilkanGaris();
         System.out.println("TOTAL ESTIMASI BIAYA AKUMULATIF: " + view.formatRupiah(grandTotal));
-        InputValidator.tekanEnter(scanner);
         view.tampilkanHeader("PROYEKSI TAHUNAN (ABSTRACT METHOD + INTERFACE)");
         double totalTahunan = 0, totalDiskonTahunan = 0;
         for (Langganan sub : listLangganan) {
         if (!sub.getStatus().equalsIgnoreCase("Aktif")) continue;
         double tahunan = sub.hitungBiayaTahunan(); // abstract method: polimorfik
         double diskon = 0;
-        if (sub instanceof DapatDiskon) {
+        if (sub instanceof DapatDidiskon) {
             diskon = ((DapatDidiskon) sub).hitungDiskon(12); // interface
         }
             totalTahunan += tahunan;
@@ -466,26 +465,28 @@ public class LanggananController {
             System.out.printf("%-8s | %-15s | Tahunan: %-18s | Diskon: %s%n",
             sub.getIdSubscription(), sub.getLayanan().getNamaLayanan(),
             view.formatRupiah(tahunan), view.formatRupiah(diskon));
-}
-view.tampilkanGaris();
-System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
-System.out.println("TOTAL DISKON  : " + view.formatRupiah(totalDiskonTahunan));
         }
+            view.tampilkanGaris();
+            System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
+            System.out.println("TOTAL DISKON  : " + view.formatRupiah(totalDiskonTahunan));
+        }
+        InputValidator.tekanEnter(scanner);
  
     }
 
     private String generateIdOtomatis() {
-        int max = 0;
-        for (Langganan sub : listLangganan) {
-            String id = sub.getIdSubscription();
-            if (id != null && id.startsWith("SUB")) {
-                try {
-                    int (num > max) max = num;
-                } catch (NumberFormatException e)
-            }
+    int max = 0;
+    for (Langganan sub : listLangganan) {
+        String id = sub.getIdSubscription();
+        if (id != null && id.startsWith("SUB")) {
+            try {
+                int num = Integer.parseInt(id.substring(3));
+                if (num > max) max = num;
+            } catch (NumberFormatException e) {}
         }
-            return String.format("SUB%02d", max + 1);
     }
+    return String.format("SUB%02d", max + 1);
+}
     private Langganan cariLanggananById(String id) {
         if (id == null) {
             return null;

@@ -1,10 +1,10 @@
 package com.pbo.fareru.minpro.pbo.model;
 
-public class LanggananProduktivitas extends Langganan implements DapatDiskon{
+public class LanggananProduktivitas extends Langganan implements DapatDiDdskon{
     @Override
     public double hitungDiskon(int bulan) {
         if (bulan >= BATAS_BULAN_DISKON) {
-            return getHargaBulanan()* BULAN * 0.10;
+            return getHargaBulanan()* BATAS_BULAN_DISKON * 0.10;
         }
         return 0;
     }

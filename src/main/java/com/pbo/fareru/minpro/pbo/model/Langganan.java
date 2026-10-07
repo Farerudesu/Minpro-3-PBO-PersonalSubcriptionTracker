@@ -1,6 +1,7 @@
 package com.pbo.fareru.minpro.pbo.model;
 
 public abstract class Langganan {
+    protected static final int BATAS_BULAN_DISKON = 12;
     private String idSubscription;
     private Layanan layanan;
     private double hargaBulanan;
@@ -9,7 +10,6 @@ public abstract class Langganan {
     private String status;
 
     public Langganan(String idSubscription, Layanan layanan, double hargaBulanan, MetodePembayaran metode, int tanggalTagihan) {
-        protected static final int BATAS_BULAN_DISKON = 12;
         setIdSubscription(idSubscription);
         setLayanan(layanan);
         setHargaBulanan(hargaBulanan);
