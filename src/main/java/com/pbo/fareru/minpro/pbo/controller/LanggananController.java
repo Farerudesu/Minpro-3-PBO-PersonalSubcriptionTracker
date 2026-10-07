@@ -1,6 +1,6 @@
 package com.pbo.fareru.minpro.pbo.controller;
 
-import com.pbo.fareru.minpro.pbo.model.DapatDiskon;
+import com.pbo.fareru.minpro.pbo.model.DapatDidiskon;
 import com.pbo.fareru.minpro.pbo.model.Langganan;
 import com.pbo.fareru.minpro.pbo.model.LanggananProduktivitas;
 import com.pbo.fareru.minpro.pbo.model.LanggananStreaming;
@@ -455,16 +455,16 @@ public class LanggananController {
         double totalTahunan = 0, totalDiskonTahunan = 0;
         for (Langganan sub : listLangganan) {
         if (!sub.getStatus().equalsIgnoreCase("Aktif")) continue;
-        double tahunan = sub.hitungBiayaTahunan(); // abstract method: polimorfik
-        double diskon = 0;
+        double tahunan = sub.hitungBiayaTahunan(); 
+        double diskonTahunan = 0;
         if (sub instanceof DapatDidiskon) {
-            diskon = ((DapatDidiskon) sub).hitungDiskon(12); // interface
+            diskon = ((DapatDidiskon) sub).hitungDiskon(12); 
         }
             totalTahunan += tahunan;
-            totalDiskonTahunan += diskon;
+            totalDiskonTahunan += diskonTahunan;
             System.out.printf("%-8s | %-15s | Tahunan: %-18s | Diskon: %s%n",
             sub.getIdSubscription(), sub.getLayanan().getNamaLayanan(),
-            view.formatRupiah(tahunan), view.formatRupiah(diskon));
+            view.formatRupiah(diskonTahunan), view.formatRupiah(diskon));
         }
             view.tampilkanGaris();
             System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
