@@ -206,20 +206,20 @@ public double hitungEstimasiBiaya(int bulan, double diskonPersen) { ... }
 
 Abstraksi menyembunyikan detail implementasi dan hanya menampilkan fungsionalitas esensial: memisahkan **WHAT TO DO** (rancangan aturan) dari **HOW TO DO** (detail pengerjaan).
 
-1. **Abstract Class**: `Langganan` dideklarasikan `abstract` karena ia adalah konsep umum yang belum jelas wujudnya — yang konkret hanyalah `LanggananStreaming` dan `LanggananProduktivitas`. Akibatnya `new Langganan(...)` langsung **dilarang** oleh compiler; objek hanya boleh dibuat lewat subclass.
+1. **Abstract Class**: `Langganan` dideklarasikan `abstract` karena ia adalah konsep umum yang belum jelas wujudnya - yang konkret hanyalah `LanggananStreaming` dan `LanggananProduktivitas`. Akibatnya `new Langganan(...)` langsung **dilarang** oleh compiler; objek hanya boleh dibuat lewat subclass.
 
 2. **Abstract Method**: `hitungBiayaTahunan()` dan `getTipeLangganan()` dideklarasikan tanpa body di `Langganan`. Setiap subclass **wajib** mengimplementasikannya dengan caranya sendiri (lihat contoh overriding di atas). Ini menyeragamkan kontrak: semua tipe langganan pasti bisa dihitung biaya tahunannya, walau rumusnya berbeda.
 
 ### C. Keyword `final`
 
-- `protected static final int BATAS_BULAN_DISKON = 12`: konstanta ambang diskon tahunan — `static` (milik class, tidak perlu objek), `final` (nilainya tidak dapat diubah), `protected` (dapat diakses subclass).
+- `protected static final int BATAS_BULAN_DISKON = 12`: konstanta ambang diskon tahunan - `static` (milik class, tidak perlu objek), `final` (nilainya tidak dapat diubah), `protected` (dapat diakses subclass).
 - Konstanta ini menggantikan angka magis `12` yang sebelumnya tersebar di method `hitungEstimasiBiaya` kedua subclass.
 
 ---
 
 ## 6. Penjelasan Letak Nilai Tambah
 
-### A. Interface `DapatDidiskon` — `model/DapatDidiskon.java`
+### A. Interface `DapatDidiskon` - `model/DapatDidiskon.java`
 
 Interface mendefinisikan kontrak perilaku `hitungDiskon(int bulan)` yang dapat dipakai oleh class mana pun, tanpa harus menjadi anak `Langganan`:
 
@@ -244,9 +244,9 @@ if (sub instanceof DapatDidiskon) {
 }
 ```
 
-### B. ID Subscription Otomatis — `controller/LanggananController.java`
+### B. ID Subscription Otomatis - `controller/LanggananController.java`
 
-Method `generateIdOtomatis()` membaca ID terbesar yang ada (`SUB01`–`SUB04` dst) lalu menghasilkan ID berikutnya (`SUB05`, ...). Pengguna tidak lagi menginput ID manual saat tambah data — sesuai masukan pada penilaian Minpro 2.
+Method `generateIdOtomatis()` membaca ID terbesar yang ada (`SUB01`–`SUB04` dst) lalu menghasilkan ID berikutnya (`SUB05`, ...). Pengguna tidak lagi menginput ID manual saat tambah data - sesuai masukan pada penilaian Minpro 2.
 
 ---
 
