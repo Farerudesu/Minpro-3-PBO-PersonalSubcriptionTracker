@@ -1,6 +1,10 @@
 package com.pbo.fareru.minpro.pbo.model;
 
-public class LanggananProduktivitas extends Langganan implements DapatDidiskon{
+/**
+
+ * @author Muhammad Fahriel (2509116050)
+ */
+public class LanggananProduktivitas extends Langganan implements DapatDidiskon {
     @Override
     public double hitungDiskon(int bulan) {
         if (bulan >= BATAS_BULAN_DISKON) {

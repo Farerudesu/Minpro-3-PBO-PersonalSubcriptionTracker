@@ -3,6 +3,10 @@ package com.pbo.fareru.minpro.pbo.view;
 import com.pbo.fareru.minpro.pbo.model.Langganan;
 import java.util.ArrayList;
 
+/**
+
+ * @author Muhammad Fahriel (2509116050)
+ */
 public class LanggananView {
 
     public void tampilkanMenuUtama() {

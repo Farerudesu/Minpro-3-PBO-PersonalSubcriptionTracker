@@ -1,5 +1,9 @@
 package com.pbo.fareru.minpro.pbo.model;
 
+/**
+
+ * @author Muhammad Fahriel (2509116050)
+ */
 public abstract class Langganan {
     protected static final int BATAS_BULAN_DISKON = 12;
     private String idSubscription;

@@ -5,10 +5,10 @@
 package com.pbo.fareru.minpro.pbo.model;
 
 /**
- *
- * @author Fareru
+
+ * @author Muhammad Fahriel (2509116050)
  */
 public interface DapatDidiskon {
     double hitungDiskon(int bulan);        
-    }
+}
 

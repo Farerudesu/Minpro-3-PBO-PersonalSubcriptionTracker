@@ -2,6 +2,10 @@ package com.pbo.fareru.minpro.pbo.controller;
 
 import java.util.Scanner;
 
+/**
+
+ * @author Muhammad Fahriel (2509116050)
+ */
 public class InputValidator {
 
     public static String bacaString(Scanner scanner, String prompt) {

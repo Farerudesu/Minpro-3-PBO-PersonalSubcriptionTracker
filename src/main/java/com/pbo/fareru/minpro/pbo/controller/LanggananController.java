@@ -11,6 +11,10 @@ import com.pbo.fareru.minpro.pbo.view.LanggananView;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+
+ * @author Muhammad Fahriel (2509116050)
+ */
 public class LanggananController {
     private ArrayList<Langganan> listLangganan;
     private ArrayList<Layanan> listLayanan;
@@ -454,26 +458,24 @@ public class LanggananController {
         view.tampilkanHeader("PROYEKSI TAHUNAN (ABSTRACT METHOD + INTERFACE)");
         double totalTahunan = 0, totalDiskonTahunan = 0;
         for (Langganan sub : listLangganan) {
-        if (!sub.getStatus().equalsIgnoreCase("Aktif")) continue;
-        double tahunan = sub.hitungBiayaTahunan(); 
-        double diskonTahunan = 0;
-        if (sub instanceof DapatDidiskon) {
-            diskon = ((DapatDidiskon) sub).hitungDiskon(12); 
-        }
+            if (!sub.getStatus().equalsIgnoreCase("Aktif")) continue;
+            double tahunan = sub.hitungBiayaTahunan(); 
+            double diskonTahunan = 0;
+            if (sub instanceof DapatDidiskon) {
+                diskonTahunan = ((DapatDidiskon) sub).hitungDiskon(12); 
+            }
             totalTahunan += tahunan;
             totalDiskonTahunan += diskonTahunan;
             System.out.printf("%-8s | %-15s | Tahunan: %-18s | Diskon: %s%n",
-            sub.getIdSubscription(), sub.getLayanan().getNamaLayanan(),
-            view.formatRupiah(diskonTahunan), view.formatRupiah(diskon));
+                    sub.getIdSubscription(), sub.getLayanan().getNamaLayanan(),
+                    view.formatRupiah(tahunan), view.formatRupiah(diskonTahunan));
         }
-            view.tampilkanGaris();
-            System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
-            System.out.println("TOTAL DISKON  : " + view.formatRupiah(totalDiskonTahunan));
-        }
+        view.tampilkanGaris();
+        System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
+        System.out.println("TOTAL DISKON  : " + view.formatRupiah(totalDiskonTahunan));
         InputValidator.tekanEnter(scanner);
- 
     }
-
+    
     private String generateIdOtomatis() {
     int max = 0;
     for (Langganan sub : listLangganan) {
