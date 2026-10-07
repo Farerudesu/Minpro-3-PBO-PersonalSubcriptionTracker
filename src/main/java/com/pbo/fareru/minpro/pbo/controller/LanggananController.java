@@ -1,5 +1,6 @@
 package com.pbo.fareru.minpro.pbo.controller;
 
+import com.pbo.fareru.minpro.pbo.model.DapatDiskon;
 import com.pbo.fareru.minpro.pbo.model.Langganan;
 import com.pbo.fareru.minpro.pbo.model.LanggananProduktivitas;
 import com.pbo.fareru.minpro.pbo.model.LanggananStreaming;
@@ -115,17 +116,8 @@ public class LanggananController {
     private void menuTambahLangganan() {
         view.tampilkanHeader("TAMBAH LANGGANAN BARU");
 
-        String idTerakhir = listLangganan.isEmpty() ? "Belum ada" : listLangganan.get(listLangganan.size() - 1).getIdSubscription();
-        System.out.println("Info: ID terakhir yang terdaftar adalah " + idTerakhir);
-
-        String idBaru;
-        while (true) {
-            idBaru = InputValidator.bacaString(scanner, "Masukkan ID Subscription baru (contoh: SUB05): ");
-            if (cariLanggananById(idBaru) == null) {
-                break;
-            }
-            view.tampilkanPesanError("ID Subscription '" + idBaru + "' sudah digunakan! Masukkan ID lain.");
-        }
+        String idBaru = generateIdOtomatis();
+        System.out.println("Info: ID otomatis untuk data baru adalah " + idBaru);
 
         view.tampilkanHeader("PILIH TIPE LANGGANAN");
         System.out.println("1. Langganan Streaming (Film / Musik / Hiburan)");
@@ -460,8 +452,40 @@ public class LanggananController {
         view.tampilkanGaris();
         System.out.println("TOTAL ESTIMASI BIAYA AKUMULATIF: " + view.formatRupiah(grandTotal));
         InputValidator.tekanEnter(scanner);
+        view.tampilkanHeader("PROYEKSI TAHUNAN (ABSTRACT METHOD + INTERFACE)");
+        double totalTahunan = 0, totalDiskonTahunan = 0;
+        for (Langganan sub : listLangganan) {
+        if (!sub.getStatus().equalsIgnoreCase("Aktif")) continue;
+        double tahunan = sub.hitungBiayaTahunan(); // abstract method: polimorfik
+        double diskon = 0;
+        if (sub instanceof DapatDiskon) {
+            diskon = ((DapatDidiskon) sub).hitungDiskon(12); // interface
+        }
+            totalTahunan += tahunan;
+            totalDiskonTahunan += diskon;
+            System.out.printf("%-8s | %-15s | Tahunan: %-18s | Diskon: %s%n",
+            sub.getIdSubscription(), sub.getLayanan().getNamaLayanan(),
+            view.formatRupiah(tahunan), view.formatRupiah(diskon));
+}
+view.tampilkanGaris();
+System.out.println("TOTAL TAHUNAN : " + view.formatRupiah(totalTahunan));
+System.out.println("TOTAL DISKON  : " + view.formatRupiah(totalDiskonTahunan));
+        }
+ 
     }
 
+    private String generateIdOtomatis() {
+        int max = 0;
+        for (Langganan sub : listLangganan) {
+            String id = sub.getIdSubscription();
+            if (id != null && id.startsWith("SUB")) {
+                try {
+                    int (num > max) max = num;
+                } catch (NumberFormatException e)
+            }
+        }
+            return String.format("SUB%02d", max + 1);
+    }
     private Langganan cariLanggananById(String id) {
         if (id == null) {
             return null;

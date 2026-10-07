@@ -1,6 +1,13 @@
 package com.pbo.fareru.minpro.pbo.model;
 
-public class LanggananProduktivitas extends Langganan {
+public class LanggananProduktivitas extends Langganan implements DapatDiskon{
+    @Override
+    public double hitungDiskon(int bulan) {
+        if (bulan >= BATAS_BULAN_DISKON) {
+            return getHargaBulanan()* BULAN * 0.10;
+        }
+        return 0;
+    }
     private String kapasitasStorage;
     private int lisensiUser;
 
@@ -56,5 +63,9 @@ public class LanggananProduktivitas extends Langganan {
             return total * 0.90;
         }
         return total;
+    }
+    @Override
+    public double hitungBiayaTahunan(){
+        return getHargaBulanan() * BATAS_BULAN_DISKON * 0.90;
     }
 }
