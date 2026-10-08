@@ -14,18 +14,18 @@ Aplikasi berbasis terminal (CLI) menggunakan bahasa Java untuk mencatat, mengelo
 
 ## Daftar Isi
 
-1. Deskripsi Singkat Program
-2. Penjelasan Struktur Package
-3. Penjelasan Alur Program
-4. Penjelasan Penerapan Encapsulation dan Inheritance
-5. Penjelasan Penerapan Polymorphism dan Abstraction
-   - A. Polymorphism (Overriding & Overloading)
-   - B. Abstraction (Abstract Class & Abstract Method)
-   - C. Keyword `final`
-6. Penjelasan Letak Nilai Tambah
-   - A. Interface `DapatDidiskon`
-   - B. ID Subscription Otomatis
-7. Mekanisme Validasi Input & Standar Kode
+1. [Deskripsi Singkat Program](#1-deskripsi-singkat-program)
+2. [Penjelasan Struktur Package](#2-penjelasan-struktur-package)
+3. [Penjelasan Alur Program](#3-penjelasan-alur-program)
+4. [Penjelasan Penerapan Encapsulation dan Inheritance](#4-penjelasan-penerapan-encapsulation-dan-inheritance)
+5. [Penjelasan Penerapan Polymorphism dan Abstraction](#5-penjelasan-penerapan-polymorphism-dan-abstraction)
+   - [A. Polymorphism (Overriding & Overloading)](#a-polymorphism-overriding--overloading)
+   - [B. Abstraction (Abstract Class & Abstract Method)](#b-abstraction-abstract-class--abstract-method)
+   - [C. Keyword `final`](#c-keyword-final)
+6. [Penjelasan Letak Nilai Tambah](#6-penjelasan-letak-nilai-tambah)
+   - [A. Interface `DapatDidiskon`](#a-interface-dapatdidiskon--modeldapatdidiskonjava)
+   - [B. ID Subscription Otomatis](#b-id-subscription-otomatis--controllerlangganancontrollerjava)
+7. [Mekanisme Validasi Input & Standar Kode](#7-mekanisme-validasi-input--standar-kode)
 
 ---
 
