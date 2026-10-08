@@ -8,7 +8,7 @@
 +------------------------------------------+
 ```
 
-Aplikasi berbasis terminal (CLI) menggunakan bahasa Java untuk mencatat, mengelola, dan memantau pengeluaran biaya langganan digital pribadi. Proyek ini merupakan pengembangan dari **Mini Project 2** menuju **Mini Project 3** dengan menerapkan **Abstraction** (`abstract class` dan `abstract method`), **Polymorphism** (`overriding` dan `overloading`), **Interface** sebagai nilai tambah, serta mempertahankan prinsip **Encapsulation**, **Inheritance**, **Validasi Input**, dan arsitektur **MVC**.
+Aplikasi berbasis terminal (CLI) menggunakan bahasa Java untuk mencatat, mengelola, dan memantau pengeluaran biaya langganan digital pribadi. **Mini Project 3** menerapkan **Abstraction** (`abstract class` dan `abstract method`), **Polymorphism** (`overriding` dan `overloading`), **Interface** sebagai nilai tambah, serta mempertahankan prinsip **Encapsulation**, **Inheritance**, **Validasi Input**, dan arsitektur **MVC**.
 
 ---
 
